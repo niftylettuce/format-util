@@ -2,7 +2,7 @@ function format(fmt) {
   var re = /(%?)(%([jds]))/g
     , args = Array.prototype.slice.call(arguments, 1);
   if(args.length) {
-    fmt = fmt.replace(re, function(match, escaped, ptn, flag) {
+    fmt = fmt.toString().replace(re, function(match, escaped, ptn, flag) {
       var arg = args.shift();
       switch(flag) {
         case 's':
@@ -29,7 +29,7 @@ function format(fmt) {
   }
 
   // update escaped %% values
-  fmt = fmt.replace(/%{2,2}/g, '%');
+  fmt = fmt.toString().replace(/%{2,2}/g, '%');
 
   return '' + fmt;
 }
