@@ -25,7 +25,7 @@ function format(fmt) {
 
   // arguments remain after formatting
   if(args.length) {
-    fmt += ' ' + args.join(' ');
+    fmt = fmt.toString() + ' ' + args.join(' ');
   }
 
   // update escaped %% values
